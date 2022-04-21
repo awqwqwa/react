@@ -9,7 +9,172 @@ import axios from 'axios';
 const {Sider} = Layout;
 const { SubMenu } = Menu;
 function SideMenu(props) {
-  const [menuList,setMenuList] = useState([])
+  const [menuList,setMenuList] = useState([
+
+
+    [
+      {
+        "id": 3,
+        "title": "添加用户",
+        "rightId": 2,
+        "key": "/user-manage/add",
+        "grade": 2
+      },
+      {
+        "id": 4,
+        "title": "删除用户",
+        "rightId": 2,
+        "key": "/user-manage/delete",
+        "grade": 2
+      },
+      {
+        "id": 5,
+        "title": "修改用户",
+        "rightId": 2,
+        "key": "/user-manage/update",
+        "grade": 2
+      },
+      {
+        "id": 6,
+        "title": "用户列表",
+        "rightId": 2,
+        "key": "/user-manage/list",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 8,
+        "title": "角色列表",
+        "rightId": 7,
+        "key": "/right-manage/role/list",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 9,
+        "title": "权限列表",
+        "rightId": 7,
+        "key": "/right-manage/right/list",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 10,
+        "title": "修改角色",
+        "rightId": 7,
+        "key": "/right-manage/role/update",
+        "grade": 2
+      },
+      {
+        "id": 11,
+        "title": "删除角色",
+        "rightId": 7,
+        "key": "/right-manage/role/delete",
+        "grade": 2
+      },
+      {
+        "id": 12,
+        "title": "修改权限",
+        "rightId": 7,
+        "key": "/right-manage/right/update",
+        "grade": 2
+      },
+      {
+        "id": 13,
+        "title": "删除权限",
+        "rightId": 7,
+        "key": "/right-manage/right/delete",
+        "grade": 2
+      },
+      {
+        "id": 15,
+        "title": "新闻列表",
+        "rightId": 14,
+        "key": "/news-manage/list",
+        "grade": 2
+      },
+      {
+        "id": 16,
+        "title": "撰写新闻",
+        "rightId": 14,
+        "key": "/news-manage/add",
+        "grade": 2,
+        "pagepermisson": 1
+      },
+      {
+        "id": 17,
+        "title": "新闻更新",
+        "rightId": 14,
+        "key": "/news-manage/update/:id",
+        "grade": 2,
+        "routepermisson": 1
+      },
+      {
+        "id": 18,
+        "title": "新闻预览",
+        "rightId": 14,
+        "key": "/news-manage/preview/:id",
+        "grade": 2,
+        "routepermisson": 1
+      },
+      {
+        "id": 19,
+        "title": "草稿箱",
+        "rightId": 14,
+        "key": "/news-manage/draft",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 20,
+        "title": "新闻分类",
+        "rightId": 14,
+        "key": "/news-manage/category",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 22,
+        "title": "审核新闻",
+        "rightId": 21,
+        "key": "/audit-manage/audit",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 23,
+        "title": "审核列表",
+        "rightId": 21,
+        "key": "/audit-manage/list",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 25,
+        "title": "待发布",
+        "rightId": 24,
+        "key": "/publish-manage/unpublished",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 26,
+        "title": "已发布",
+        "rightId": 24,
+        "key": "/publish-manage/published",
+        "pagepermisson": 1,
+        "grade": 2
+      },
+      {
+        "id": 27,
+        "title": "已下线",
+        "rightId": 24,
+        "key": "/publish-manage/sunset",
+        "pagepermisson": 1,
+        "grade": 2
+      }
+    ]
+  ])
 
   const iconList = {
     "/home":<UserOutlined />,
@@ -49,13 +214,6 @@ function SideMenu(props) {
     })
   }
 
-  useEffect(()=>{
-    axios.get("http://localhost:5000/rights?_embed=children").then(
-      res=>{
-        console.log(res)
-        setMenuList(res.data)}
-    )
-  },[])
 
 
   return (
