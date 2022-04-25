@@ -1,0 +1,14 @@
+#canvas{
+    border-style: solid;
+  border-color: #0095dd;
+    align-items: center;
+    justify-content: center;
+}
+#game{
+    display: flex;
+    flex-direction: column;
+    /* 列布局 */
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}

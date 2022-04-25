@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import {
   UserOutlined,
+  RobotOutlined,
+  CustomerServiceOutlined,
 } from '@ant-design/icons';
 import axios from 'axios';
 const {Sider} = Layout;
@@ -12,6 +14,22 @@ function SideMenu(props) {
   const [menuList,setMenuList] = useState(
   [
     {
+      "id": 1,
+      "title": "游戏",
+      "key": "/home",
+      "pagepermisson": 1,
+      "grade": 1,
+      "children": []
+    },
+    {
+      "id": 2,
+      "title": "音乐播放器",
+      "key": "/music",
+      "pagepermisson": 1,
+      "grade": 1,
+      "children": []
+    },
+   /* {
       "id": 1,
       "title": "首页",
       "key": "/home",
@@ -223,17 +241,13 @@ function SideMenu(props) {
           "grade": 2
         }
       ]
-    }
+    }*/
   ]
   )
 
   const iconList = {
-    "/home":<UserOutlined />,
-    "/user-manage":<UserOutlined />,
-    "/user-manage/list":<UserOutlined />,
-    "/right-manage":<UserOutlined />,
-    "/right-manage/role/list":<UserOutlined />,
-    "/right-manage/right/list":<UserOutlined />
+    "/home":<RobotOutlined />,
+    "/music":<CustomerServiceOutlined />,
   }
 
   const checkPagePermission = (item)=>{
@@ -269,9 +283,9 @@ function SideMenu(props) {
 
   return (
 
-    <Sider trigger={null} collapsible collapsed={false} >
+    <Sider trigger={null} collapsible collapsed={true} >
       <div style={{display:"flex",height:"100%","flexDirection":"column"}}>
-          <div className="logo">2333</div>
+          <div className="logo">鹿灵的小房子</div>
             <div style={{flex:1,"overflow":"auto"}}>
               <Menu theme="dark" mode="inline" defaultSelectedKeys={[props.location.pathname,{/*控制刷新保持原有路径*/}]} defaultOpenKeys={["/"+props.location.pathname.split("/")[1]]}>
                 {renderMenu(menuList)}

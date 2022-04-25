@@ -3,9 +3,8 @@ import {Switch,Route,Redirect} from 'react-router-dom'
 import SideMenu from '../../components/sandbox/SideMenu'
 import TopHeader from '../../components/sandbox/TopHeader'
 import Home from './home/Home'
-import UserList from './user-manage/UserList'
-import RightList from './right-manage/RightList'
-import RoleList from './right-manage/RoleList'
+import Music from './music/Music'
+
 import './NewSandBox.css';
 
 import { Layout} from 'antd';
@@ -27,9 +26,7 @@ export default function NewSandBox() {
           >
             <Switch>
                 <Route path='/home' component={Home} />
-                <Route path='/user-manage/list' component={UserList} />
-                <Route path='/right-manage/role/list' component={RoleList} />
-                <Route path='/right-manage/right/list' component={RightList} />
+                <Route path='/music' component={Music} />
                 <Redirect from='/' to='/home'></Redirect>
             </Switch>
             </Content>
