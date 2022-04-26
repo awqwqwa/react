@@ -4,7 +4,7 @@ import SideMenu from '../../components/sandbox/SideMenu'
 import TopHeader from '../../components/sandbox/TopHeader'
 import Home from './home/Home'
 import Music from './music/Music'
-
+import Note from './note/Note'
 import './NewSandBox.css';
 
 import { Layout} from 'antd';
@@ -27,6 +27,7 @@ export default function NewSandBox() {
             <Switch>
                 <Route path='/home' component={Home} />
                 <Route path='/music' component={Music} />
+                <Route path='/note' component={Note} />
                 <Redirect from='/' to='/home'></Redirect>
             </Switch>
             </Content>

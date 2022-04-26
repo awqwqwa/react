@@ -5,8 +5,9 @@ import './music.css'
 import {
   StepForwardOutlined,
 } from '@ant-design/icons';
+import { fixControlledValue } from 'antd/lib/input/Input';
 const { Search } = Input;
-export default function Music() {
+export default function Music(props) {
   const [list,setList]=useState([]);
   const [http,setHttp]=useState("#");
   const onSearch = (value) =>{
@@ -29,7 +30,7 @@ export default function Music() {
         onSearch={onSearch}
       />
       <div style={{
-        height: 620,
+        height: 560,
         overflow: 'auto',
       }}>
             <List 
@@ -39,13 +40,18 @@ export default function Music() {
             <List.Item actions={[<StepForwardOutlined />, <a >more</a>]}>
               <List.Item.Meta
                 //avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />/*item.icon}*/}
-                title={<p onClick={play(item.id)}>{item.name}</p>}
+                title={<p onClick={()=>play(item.id)}>{item.name}</p>}
               />
             </List.Item>
           )}
         />,
       </div>
-      <audio src={http} controls="controls" autoPlay="autoplay" loop="loop" height="100" width="100"></audio>
+      <audio src={http} controls="controls" autoPlay="autoplay" loop="loop" height="100" width="100" 
+      style={{
+        position:'fixed',
+        top:10,
+        left:120,
+      }}></audio>
     </div>
   )
 }
